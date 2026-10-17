@@ -1,120 +1,127 @@
----
+# Finance Manager
 
-# 💸 Finances: a private expense manager for Android
+An expense manager for Android that builds your transaction history from bank SMS and helps you stay within a budget. Your financial data is stored only on your phone.
 
-## Track your daily spending and stick to a monthly budget, without handing your financial life to anyone.**
-
-Finances reads your bank SMS, turns them into transactions automatically, and shows you where your money goes, all **on your phone**. There's no sign-up, no cloud, no ads and no trackers.
+[Download the latest release](../../releases/latest) · [Report an issue](../../issues)
 
 ---
 
-## 🔒 Privacy at a glance
+## Overview
 
-| | |
+Finance Manager reads the transaction SMS your bank sends you, records each debit and credit against the right account, and files it under the category you last used for that payee. Budgets, bills, loans and savings goals are built on top of that history, so most of your records stay up to date without manual entry.
+
+The app requires a subscription and a Google sign-in. These are used only to manage the subscription. Transactions, balances and SMS never leave the device.
+
+## Features
+
+- **Automatic tracking from bank SMS.** New messages are processed as they arrive, and existing ones are imported during setup. Duplicates and multi-part messages are handled.
+- **Budgets by cycle.** Set a budget per category, using calendar months or a cycle that starts on your salary date.
+- **Analysis.** Spending is grouped into necessities, discretionary spending and investments, with a daily spending heatmap for the current cycle.
+- **Accounts and cards.** Track multiple bank accounts and credit cards with automatically updated balances. Link debit cards to the account they draw from.
+- **Bills.** Track recurring payments that repeat every 1, 3, 6 or 12 months. The app sets money aside for each bill until it's due, matches the payment when it arrives, and suggests bills from your payment history.
+- **Loans.** Record money you have lent or borrowed. A loan can be repaid in installments, using an interest rate and term, a fixed EMI, or amounts you enter for each month. Each installment is tracked as it is paid.
+- **Savings funds.** Track progress towards savings goals.
+- **Hide amounts.** Mask all figures on screen with one setting.
+- **Daily summary.** An optional notification with the day's spending, at a time you choose.
+- **In-app updates.** New versions are offered from within the app.
+
+## Pricing
+
+| Plan | Price |
 |---|---|
-| ✅ **No account or sign-up** | Your name is only used to greet you, and it never leaves the device. |
-| ✅ **No cloud sync, no cloud backup** | Your data isn't uploaded anywhere, not even to Google Drive backups. |
-| ✅ **No ads, no analytics, no crash reporting** | The app contains no tracking or advertising libraries. |
-| ✅ **Personal SMS are ignored** | Only messages from known bank sender IDs are processed. Everything else is skipped and never stored. |
-| ✅ **Uninstalling removes everything** | All data lives in the app's private storage on your phone. |
-| ℹ️ **One network request: the update check** | When you open the app, it asks GitHub whether a newer version exists. That's all. Details below. |
+| Monthly | ₹30 per month |
+| Yearly | ₹300 per year |
 
----
+- Payment is by UPI AutoPay through Razorpay. You approve the mandate once in your UPI app, and it renews automatically.
+- You can cancel AutoPay at any time from the Subscribe screen. Time you have already paid for remains available.
+- There is no free trial.
+- **Referrals.** Share your referral code from the Subscribe screen. When a friend who entered your code makes their first payment, you and your friend each receive 30 extra days.
 
-## ✨ What it does
+## Privacy
 
-- 📩 **Automatic tracking from bank SMS.** Debits and credits are picked up as they arrive, matched to the right account, and filed under the category you last used for that payee.
-- 🗓️ **Budgets that follow your pay cycle.** Use calendar months, or a cycle that starts on your salary date.
-- 🏷️ **Categories with budgets.** Set a budget per category and see how much is left this cycle.
-- 📊 **Spending insights.** A breakdown of necessities, disposables and investments, plus a daily spending heatmap.
-- 🏦 **Multiple accounts.** Balances stay up to date automatically.
-- 🏛️ **Loans and 💰 savings funds.** Track money you've lent or borrowed, and progress toward savings goals.
-- 🙈 **Hide amounts.** Mask every figure when someone's looking over your shoulder.
-- 🔔 **Optional daily summary.** A notification with today's spending, calculated on your device.
+| Data | Where it goes |
+|---|---|
+| Transactions, balances, accounts, budgets, bills, loans, funds and bank SMS | Stays on your phone. It isn't uploaded anywhere, and it's excluded from Android cloud backup. |
+| Google account email and account ID | Sent to the Finance Manager subscription service at sign-in, to identify your subscription. |
+| Device identifier (Android ID) | Sent to the subscription service at sign-in, to record which devices use your account. |
+| Payment details (UPI ID, phone number) | Entered on Razorpay's page and processed by Razorpay. The subscription service receives only the payment reference, plan and amount. |
+| Update check | The app asks GitHub for the latest release on this page. GitHub can see your IP address, as with any website request. |
 
----
+The app contains no advertising, analytics or crash-reporting libraries. Messages from senders that aren't known banks are ignored and never stored.
 
-## 🛡️ Permissions, and why each one is needed
+## Permissions
 
-| Permission | Why | If you deny it |
+| Permission | Purpose | If denied |
 |---|---|---|
-| **Read SMS** (`READ_SMS`) | Imports past bank transaction messages when you first set up the app. | No automatic import. You can still add everything by hand. |
-| **Receive SMS** (`RECEIVE_SMS`) | Picks up new bank messages as they arrive, so transactions show up on their own. | New transactions aren't added automatically. |
-| **Notifications** (`POST_NOTIFICATIONS`) | The optional daily spending summary. | No daily summary. Nothing else changes. |
-| **Internet** (`INTERNET`) | **Only** used to check for and download app updates from this GitHub page. | Granted automatically by Android; you can block it with a firewall and the app works fully offline. |
-| **Install apps** (`REQUEST_INSTALL_PACKAGES`) | Lets the app hand a downloaded update to Android's installer. You confirm every install yourself. | Android asks the first time. Say no and you can still update by downloading the APK here. |
+| Read SMS (`READ_SMS`) | Imports existing bank transaction messages during setup. | The app can't be set up. SMS access is required. |
+| Receive SMS (`RECEIVE_SMS`) | Records new bank messages as they arrive. | The app can't be set up. SMS access is required. |
+| Notifications (`POST_NOTIFICATIONS`) | The optional daily summary and the notification to reopen the app after an update. | No notifications. Everything else works. |
+| Internet (`INTERNET`) | Sign-in, the subscription, and checking for and downloading updates. | Granted automatically by Android. |
+| Install apps (`REQUEST_INSTALL_PACKAGES`) | Passes a downloaded update to Android's installer. You confirm each install. | You can still update by downloading the APK from this page. |
 
-The app does **not** ask for contacts, location, camera, microphone, storage, phone or call logs.
+The app doesn't request access to contacts, location, camera, microphone, storage, phone or call logs.
 
----
+## Data storage
 
-## 📦 What's stored on your phone
+**On your phone**, in the app's private storage, which is deleted when you uninstall the app:
 
-Everything below is kept only in the app's private storage. Other apps can't read it, and it's deleted when you uninstall.
-
-| Data | Where it comes from |
+| Data | Source |
 |---|---|
-| First and last name | You enter it during setup. It's only used for a greeting. |
-| Accounts (name, balance, optional account number) | You enter them, or confirm ones detected from SMS. |
-| Transactions (amount, date, payee, reference number, last digits of the account or card) | Bank SMS or manual entry. |
-| The original text of each **bank** SMS | Kept alongside its transaction so you can see where it came from. Non-bank SMS are never stored. |
-| Categories, budgets, loans and savings funds | You enter them. |
-| Payee→category and card→account preferences | Remembered from your choices, so future transactions are filed automatically. |
-| Settings (cycle type, currency, notification time, and so on) | You choose them. |
+| Your name | Taken from your Google account during setup, and used only for greetings. |
+| Accounts, transactions and the text of each bank SMS | Bank SMS, your confirmations, and manual entries. |
+| Categories, budgets, bills, loans and savings funds | Entered by you. |
+| Payee-to-category and card-to-account preferences | Learned from your choices. |
+| Settings, sign-in session and subscription licence | Your choices, and the subscription service. |
 
-**Backups:** the app opts out of Android cloud backup, so your data is **not** uploaded to Google Drive. If you move to a new phone with Android's phone-to-phone transfer (cable or Wi-Fi), the app's data comes along, directly from device to device.
+If you move to a new phone with Android's device-to-device transfer, the app's data is copied directly between the devices.
 
----
+**On the subscription service:**
 
-## 🌐 What leaves your phone
+| Data | Purpose |
+|---|---|
+| Email address and Google account ID | Identify your account. |
+| Android IDs of devices you have signed in on | Account security and abuse prevention. |
+| Subscription dates, and Razorpay subscription and payment references with amounts and refunds | Grant access and keep payment records. |
+| Your referral code, and the code you entered | Apply referral rewards. |
+| A history of changes to your access | Support and dispute resolution. |
 
-Only one thing: **the update check.**
+Sign-in sessions expire after 90 days. Your account data is kept until you ask for it to be deleted (see [Support](#support)). If you delete your account, any active subscription is cancelled, and the unused part of your latest payment is refunded. Payment records are kept without your name, as tax law requires.
 
-When the app opens, it asks GitHub for the latest release on this page. If a newer version exists, it shows you the release notes and asks before downloading. As with visiting any website, GitHub can see your IP address and that a request was made.
+## Supported banks
 
-**Nothing about you or your finances is ever sent:** no transactions, balances, SMS, names or device identifiers.
+Transaction SMS are recognised from these banks:
 
----
+Allahabad Bank, American Express, Andhra Bank, Axis Bank, Bank of Baroda, Bank of India, Bank of Maharashtra, Canara Bank, Central Bank of India, Citi, Federal Bank, HDFC Bank, HSBC, ICICI Bank, IDBI Bank, IDFC First Bank, India Post, Indian Bank, Indian Overseas Bank, IndusInd Bank, Kotak Mahindra Bank, Oriental Bank of Commerce, Paytm Payments Bank, Punjab National Bank, RBL Bank, SBI, SBI Card, Standard Chartered, UCO Bank, Union Bank of India and Yes Bank.
 
-## 🏦 Supported banks
+If your bank isn't listed, or a message wasn't recognised, please [open an issue](../../issues).
 
-SMS from these senders are recognised: **SBI, HDFC, ICICI, Axis, Kotak, IDFC First, Canara, Bank of India, UCO, Union Bank, Indian Bank, Central Bank, Standard Chartered, Paytm Payments Bank** and **American Express**.
+## Installation
 
-Messages from any other sender are ignored. Is your bank missing? [Open an issue](../../issues).
+**Requirements:** Android 10 or later.
 
----
+1. Download the latest `.apk` file from [Releases](../../releases/latest).
+2. Open the file. If Android asks, allow installs from your browser or file manager.
+3. Open Finance Manager, grant SMS access, and sign in with Google.
+4. Review the accounts and payees the app found in your SMS, then subscribe to start using the app.
 
-## 📲 Install
+## Updates
 
-1. Download the latest `finances-vX.Y.Z.apk` from [**Releases**](../../releases/latest).
-2. Open it. Android may ask you to allow installs from your browser or file manager. Allow it for this install.
-3. Open Finances and follow the setup.
+- When a new version is available, the app shows its release notes and offers to install it. Your data is kept.
+- After the update installs, tap the notification to reopen the app.
+- To check manually, go to **Settings > App Version**.
+- Every release is signed with the same key, so Android only installs updates that come from this project.
 
-**Requirements:** Android 10 or newer.
+## Support
 
-## 🔄 Updates
+Use [GitHub Issues](../../issues) for:
 
-When a new version is out, the app shows a short **"Update to vX.Y.Z"** dialog with the release notes:
+- **Bug reports and feature requests.**
+- **Unrecognised SMS.** Paste the message with account numbers, amounts and reference numbers removed.
+- **Data requests.** Ask for a copy of your subscription data, or for your account to be deleted. Don't post your email address. The maintainer will follow up to verify your request.
 
-- Tap **Update**, then confirm in Android's installer. Your data stays exactly where it is.
-- The first time, Android asks you to allow Finances to install apps. This is so it can hand over the update.
-- You can also check manually in **Settings → App Version**.
+## Source code
 
-Every release is signed with the same key, so Android only accepts updates that genuinely come from this project.
+The source code isn't public. You can check the privacy claims on this page yourself:
 
----
-
-## 🔍 About the source code
-
-The source code is **private for now**. You don't have to take the claims above on trust, though; you can check them yourself:
-
-- **Permissions:** go to **Settings → Apps → Finances → Permissions** to see the exact list Android granted.
-- **Network use:** block the app with a firewall such as [NetGuard](https://netguard.me/) or your phone's built-in data controls. Everything except the update check keeps working.
-
----
-
-## 💬 Feedback
-
-Found a bug, an SMS that wasn't picked up, or have an idea? [Open an issue](../../issues). Please **remove account numbers and amounts** from any SMS you paste.
-
----
+- **Permissions.** Go to **Settings > Apps > Finance Manager > Permissions** to see exactly what Android has granted.
+- **Network use.** Inspect or restrict the app's traffic with a firewall such as [NetGuard](https://netguard.me/). It connects only to the subscription service, Razorpay (while you subscribe), Google (for sign-in) and GitHub (for updates).
